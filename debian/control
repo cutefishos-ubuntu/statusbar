@@ -6,11 +6,13 @@ Build-Depends: cmake,
                debhelper (>= 9),
                extra-cmake-modules,
                libkf5windowsystem-dev,
+               libqt5x11extras5-dev,
                qtbase5-dev,
                qtdeclarative5-dev,
                qtquickcontrols2-5-dev,
                qttools5-dev,
-               qttools5-dev-tools
+               qttools5-dev-tools,
+               pkg-config
 Standards-Version: 4.5.0
 Homepage: https://github.com/cutefishos/terminal
 

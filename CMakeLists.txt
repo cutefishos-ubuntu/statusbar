@@ -11,9 +11,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt5 CONFIG REQUIRED Widgets DBus X11Extras Concurrent Svg LinguistTools QuickControls2)
+find_package(Qt5 CONFIG REQUIRED Widgets DBus X11Extras Concurrent LinguistTools QuickControls2)
 find_package(KF5WindowSystem REQUIRED)
-find_package(FishUI REQUIRED)
 find_package(PkgConfig REQUIRED)
 
 pkg_check_modules(XCB_LIBS REQUIRED xcb)
@@ -86,9 +85,9 @@ set_source_files_properties(src/libdbusmenuqt/com.canonical.dbusmenu.xml PROPERT
 # qt_add_dbus_interface(libdbusmenu_SRCS src/libdbusmenuqt/com.canonical.dbusmenu.xml dbusmenu_interface)
 
 ## appmenu
-qt_add_dbus_adaptor(appmenu_SRCS src/appmenu/com.canonical.AppMenu.Registrar.xml
+qt5_add_dbus_adaptor(appmenu_SRCS src/appmenu/com.canonical.AppMenu.Registrar.xml
     src/appmenu/menuimporter.h MenuImporter menuimporteradaptor MenuImporterAdaptor)
-qt_add_dbus_adaptor(appmenu_SRCS src/appmenu/org.cutefish.cappmenu.xml
+qt5_add_dbus_adaptor(appmenu_SRCS src/appmenu/org.cutefish.cappmenu.xml
     src/appmenu/appmenudbus.h AppmenuDBus appmenuadaptor AppmenuAdaptor)
 
 ## statusbar dbus
@@ -108,10 +107,6 @@ target_link_libraries(cutefish-statusbar
   Qt5::X11Extras
   Qt5::Concurrent
   Qt5::DBus
-  Qt5::Svg
-
-  FishUI
-
   KF5::WindowSystem
   ${XCB_LIBS_LIBRARIES}
 )
