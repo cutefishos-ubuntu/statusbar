@@ -122,7 +122,7 @@ ControlCenterDialog {
         Item {
             id: topItem
             Layout.fillWidth: true
-            height: 48
+            height: 36
 
             RowLayout {
                 id: topItemLayout
@@ -132,7 +132,7 @@ ControlCenterDialog {
                 Image {
                     id: userIcon
 
-                    property int iconSize: 40
+                    property int iconSize: 36
 
                     Layout.preferredHeight: iconSize
                     Layout.preferredWidth: iconSize
@@ -165,8 +165,8 @@ ControlCenterDialog {
 
                 IconButton {
                     id: settingsButton
-                    implicitWidth: topItem.height * 0.8
-                    implicitHeight: topItem.height * 0.8
+                    implicitWidth: topItem.height
+                    implicitHeight: topItem.height
                     Layout.alignment: Qt.AlignTop
                     source: "qrc:/images/" + (FishUI.Theme.darkMode ? "dark/" : "light/") + "settings.svg"
                     onLeftButtonClicked: {
@@ -177,8 +177,8 @@ ControlCenterDialog {
 
                 IconButton {
                     id: shutdownButton
-                    implicitWidth: topItem.height * 0.8
-                    implicitHeight: topItem.height * 0.8
+                    implicitWidth: topItem.height
+                    implicitHeight: topItem.height
                     Layout.alignment: Qt.AlignTop
                     source: "qrc:/images/" + (FishUI.Theme.darkMode ? "dark/" : "light/") + "system-shutdown-symbolic.svg"
                     onLeftButtonClicked: {
@@ -253,7 +253,7 @@ ControlCenterDialog {
         Item {
             id: brightnessItem
             Layout.fillWidth: true
-            height: 45
+            height: 40
             visible: brightness.enabled
 
             Rectangle {
@@ -302,7 +302,7 @@ ControlCenterDialog {
         Item {
             id: volumeItem
             Layout.fillWidth: true
-            height: 45
+            height: 40
             visible: volume.isValid
 
             Rectangle {
