@@ -33,11 +33,18 @@ public:
     Q_INVOKABLE void setColor(QColor c);
     Q_INVOKABLE void setBackgound(const QString &fileName);
 
+private slots:
+    void onPrimaryScreenChanged();
+    void onChanged();
+
 signals:
     void newColor(QColor color, int lightness);
 
 private:
     int m_statusBarHeight;
+    int m_type;
+    QColor m_color;
+    QString m_wallpaper;
 };
 
 #endif // BACKGROUNDHELPER_H
