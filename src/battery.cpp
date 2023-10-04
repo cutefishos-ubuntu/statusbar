@@ -20,6 +20,7 @@
 #include "battery.h"
 #include <QSettings>
 #include <QDBusPendingCall>
+#include <cmath>
 
 static const QString s_sServer = "com.cutefish.Settings";
 static const QString s_sPath = "/PrimaryBattery";
@@ -142,26 +143,8 @@ QString Battery::iconSource() const
 
     if (percent >= 95)
         range = 100;
-    else if (percent >= 85)
-        range = 90;
-    else if (percent>= 75)
-        range = 80;
-    else if (percent >= 65)
-        range = 70;
-    else if (percent >= 55)
-        range = 60;
-    else if (percent >= 45)
-        range = 50;
-    else if (percent >= 35)
-        range = 40;
-    else if (percent >= 25)
-        range = 30;
-    else if (percent >= 15)
-        range = 20;
-    else if (percent >= 5)
-        range = 10;
     else
-        range = 0;
+        range = round(percent / 10.0) * 10;
 
     if (m_onBattery)
         return QString("battery-level-%1-symbolic.svg").arg(range);
