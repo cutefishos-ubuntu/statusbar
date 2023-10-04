@@ -20,6 +20,7 @@
 #include "battery.h"
 #include <QSettings>
 #include <QDBusPendingCall>
+#include <cmath>
 
 static const QString s_sServer = "com.cutefish.Settings";
 static const QString s_sPath = "/PrimaryBattery";
